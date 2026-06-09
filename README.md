@@ -1,2 +1,1 @@
-O site ta funcionando
-HELL YEAHHH
+Um site para cadastrar e visualizar jogos
