@@ -25,11 +25,7 @@ class CategoriaController:
             flash("Erro: O nome da categoria é obrigatório!", "danger")
             return self.preparar_cadastro()
 
-        if session["admin"] == True:
-             status = "aprovado"
-        else:
-             status = "pendente"
-        nova_categoria = Categoria(nome, status)
+        nova_categoria = Categoria(nome)
         self.__dao.salvar_categoria(nova_categoria)
         flash(f"Sucesso: Categoria '{nome}' cadastrada com sucesso!", "success")
         return redirect(url_for("categorias.listar_categorias"))
