@@ -36,8 +36,7 @@ CREATE TABLE IF NOT EXISTS Comentarios(
 		Autor VARCHAR(50),
         Comentario VARCHAR(1000),
         Id_autor INT,
-        Id_jogo INT,
-        Status VARCHAR(50)
+        Id_jogo INT
         
 );
 
@@ -46,8 +45,7 @@ CREATE TABLE IF NOT EXISTS Comentarios(
 
 CREATE TABLE IF NOT EXISTS Categorias(
 		Id INT auto_increment PRIMARY KEY,
-        Nome VARCHAR(50),
-        Status Varchar(50)
+        Nome VARCHAR(50)
 );
 
 
@@ -73,6 +71,10 @@ ADD CONSTRAINT fk_jogo FOREIGN KEY (Id_jogo) REFERENCES Jogos(id) ON DELETE CASC
 ALTER TABLE Jogos
 ADD CONSTRAINT fk_games FOREIGN KEY (Autor) REFERENCES Usuario(Id) ON DELETE CASCADE ON UPDATE CASCADE;
 
+INSERT INTO Categorias(nome)
+VALUES
+("Destaque"),
+("Recente"),
+("Em promoção");
 
-select * from Jogos;
 
