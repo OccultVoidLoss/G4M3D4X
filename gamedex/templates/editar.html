@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block titulo %} Cadastrar {% endblock %}
+{% block content %}
+  <div class="card shadow-sm p-4">
+    <h3 class="texto-form">Editar {{jogo.nome}}</h3>
+    <hr />
+    <form method="POST" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label class="form-label texto-form">Nome</label>
+        <input type="text" name="nome" class="form-control" />
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label texto-form">Desenvolvedora</label>
+        <input type="text" name="dev" class="form-control" />
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label texto-form">Data de Lançamento</label>
+          <input type="date" name="data" class="form-control" />
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label texto-form">Gênero</label>
+          <input type="text" name="genero" class="form-control" />
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <label class="form-label texto-form">Sinopse</label>
+          <textarea name="sinopse" class="form-control"></textarea>
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <label class="form-label texto-form">Imagem</label>
+          <input type="file" name="img" class="form-control"> 
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label class="form-label texto-form">Plataforma</label>
+          <input type="text" name="plataforma" class="form-control" />
+        </div>
+
+<div class="category-form">
+  {% for c in categorias %}
+  <div>
+    <input type="checkbox" id="{{c.id}}" name="categorias" value="{{c.id}}">
+    <label for="{{c.id}}">{{c.nome}}</label>
+  </div>
+  {% endfor %}
+    <button type="submit" class="btn btn-success w-100">Editar</button>
+    </form>
+  </div>
+{% endblock %}
