@@ -28,13 +28,13 @@ class CategoriaDAO(BaseDAO):
         return lista_categorias
 
     def salvar_categoria(self, categoria):
-        sql = "Insert into Categorias (Nome) VALUES (%s,%s)"
-        valores = (categoria.nome)
+        sql = "Insert into Categorias(Nome) VALUES (%s)"
+
         conexao = self._get_connection()
         cursor = conexao.cursor()
-
+        nome = tuple(categoria.nome)
         try:
-            cursor.execute(sql,valores)
+            cursor.execute(sql,nome)
             conexao.commit()
             categoria.id = cursor.lastrowid                        
         finally:
